@@ -15,7 +15,10 @@ scp -r dist/frontend/browser student@192.168.56.12:/tmp/notes
 sudo apt install -y nginx
 sudo rm -rf /var/www/notes
 sudo mv /tmp/notes /var/www/notes
+sudo chown -R root:root /var/www/notes
+sudo chmod -R a+rX /var/www/notes
 ```
+Bez chmod nginx zwraca 403 (scp z Windowsa zakłada katalog z prawami tylko dla właściciela).
 
 `/etc/nginx/sites-available/default`:
 ```nginx
